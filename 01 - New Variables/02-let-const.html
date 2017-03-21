@@ -8,7 +8,11 @@
 <script>
   const key = 'abc123';
   let points = 50;
-  let winner = false;
+  let winner = false; // scoped to the window
+
+  if(points > 40) {
+    let winner = true; // doesn't work, because it's scoped to the block
+  }
 
   const person = {
     name: 'Wes',

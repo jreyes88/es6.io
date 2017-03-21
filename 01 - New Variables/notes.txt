@@ -1,0 +1,71 @@
+Unit 1: Var vs Let/Const
+-can be reassigned and updated:
+    var width = 100;
+    console.log(width);
+    width = 200;
+    console.log(width);
+-can also be scoped (globally scoped or function scoped)
+    function setWidth() {
+      var width = 100;
+      console.log(width); // -works
+    }
+    setWidth();
+    console.log(width);
+
+    -Does not work
+-issue with var:
+    var age = 100;
+    if(age > 12) {
+    var dogYears = age * 7;
+    console.log(`You are ${dogYears} dog years old!`);
+    }
+    
+    -The above block works, but dogYears becomes scoped to the whole window
+
+-let and const are not scoped to the function, instead they are block scoped
+-an opening and closing curly bracket is a block: {}
+-Same example:
+    var age = 100;
+    if(age > 12) {
+      let dogYears = age * 7;
+      console.log(`You are ${dogYears} dog years old!`);
+    }
+-now if you console log dogYears, it will return undefined, as intended
+
+Takeaway: One of the attributes shared by both let and const is that they are block scoped, not function scoped/globally scoped like var is
+
+
+Unit 2: Let vs Const
+Let:
+-You cannot reassign let variables:
+    let points = 50;
+    let points = 60; -will spit out an error
+-Let variables are meant to be reassigned, but const variables are not
+    let points = 50;
+    points = 60; - this works
+
+    const key = 'abc123';
+    key = 'abc1234'; - this doesn't work
+
+Const:
+-Not immutable, however cannot be reassigned
+    const person =  {
+        name: 'Joey',
+        age: 29
+    }
+
+    person = {name: 'Joseph'}; -This doesn't work
+    person.name = 'Joseph'; -This does work
+-An object is like me, I don't change, but my properties can change.
+
+Summary:
+-use `const` by default
+-only use `let` if rebinding is needed
+-`var` shouldn't be used in ES6
+
+
+
+
+Resources/Continued reading:
+https://mathiasbynens.be/notes/es6-const
+http://blog.getify.com/constantly-confusing-const/

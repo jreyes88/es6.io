@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>let and const real world</title>
+</head>
+<body>
+<script>
+  // IIFE (Immediately Invoked Function Expression) runs automatically on page load
+  // Also contains the var-declared variable so it doesn't 'bleed' into the window
+  // (function() {
+  //   var name = 'wes';
+  //   console.log(name);
+  // })();
+  
+  // However, with let and const, you don't need an IIFE since they are block-scoped variables
+  // const name = 'wes';
+  // This will work the same if you type `name` into the console
+  
+  // Now if you put it inside of curly braces it will also not bleed into the window, and instead you would do:
+  // {
+  //   const name = 'wes';
+  //   console.log(name);
+  // }
+  
+  // let has some advantages within for-loops, too
+  // for (var i = 0; i < 10; i++) {
+  //   console.log(i);
+  //   setTimeout(function() {
+  //     console.log('the number is ' + i);
+  //   }, 1000);
+  // };
+  // The above doesn't work because i iterates automatically and is already done iterating to 10 by the time the timeout function runs
+  // 
+  // To fix this you can use a block-scoped iterator!
+  for (let i = 0; i <10; i++) {
+    console.log(i);
+    setTimeout(function() {
+      console.log('The number is ' + i);
+    }, 1000);
+  }
+</script>
+</body>
+</html>
