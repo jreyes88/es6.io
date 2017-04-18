@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Arrow Functions Examples</title>
+</head>
+<body>
+  <script>
+
+  const race = '100m Dash';
+  const winners = ['Hunter Gath', 'Singa Song', 'Imda Bos'];
+
+  // We can use an arrow function to build an object like:
+  // racer = {
+  //   name: 'Joey Reyes',
+  //   place: 1,
+  //   race: race
+  // }
+  
+  // 1. Use the arrow function's implicit return, but return an object. (Hint, use parenthesis);
+  const racers = winners.map((winner, i) => ({name: winner, race: race, place: i + 1}));
+
+  // 2. A new feature of es6 is that you can get rid of that redundant 'race: race' and it will still work:
+  const racers2 = winners.map((winner, i) => ({namne: winner, race, place: i + 1}));
+
+  // console.table(racers2);
+  // Now let's poll the people in the room for their ages
+  const ages = [10, 16, 55, 2234, 63, 909, 23, 23];
+
+  // Now let's filter the list for people who are 60 years or older
+  const oldPeople = ages.filter(age => age >= 60);
+  console.log(oldPeople);
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Arrow Functions ☽ ☾ </title>
+</head>
+<body>
+  <script>
+    const names = ['wes', 'kait', 'lux'];
+
+    // Say you want to add 'bos' as a last name to each of these names.
+    // Normally you would use .map();
+    const coolNames = names.map(function(name) {
+      return `${name} Bos`;
+    });
+
+    // How would we re-write this as an arrow function?
+    // Let's re-write the above as an arrow function
+    // 1. Replace the word 'function' with a fat arrow
+    const coolNames2 = names.map((name) => {
+      return `${name} Bos`;
+    });
+
+    // 2. If you only have one parameter, (i.e. 'name'), there's no need to have parenthesis around it
+    const coolNames3 = names.map(name => {
+      return `${name} Bos`;
+    });
+
+    // 3. You can also utilize the arrow function's implicit return
+    // An explicit return = writing out the word "return"
+    // Write an implicit return by putting the return statement on the same line as the arrow, and deleting the external curly brackets
+    const coolNames4 = names.map(name => `${name} Bos`);
+
+    // 4. If you aren't passing an argument at all, you need to pass in a set of empty parenthesis
+    const coolNames5 = names.map(() => `cool cool joey`);
+
+    // console.log(coolNames5);
+    // By their nature, arrow functions are always anonymous functions.
+    // You can, however, store the function in a variable.
+    
+    const sayMyName = (name) => { console.log(`Hey there ${name}!`) };
+
+    sayMyName('joey');
+
+  </script>
+</body>
+</html>

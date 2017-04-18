@@ -7,6 +7,10 @@
 <body>
 <script>
   console.log(pizza);
+
+  // Temporal dead zone where, with const and let, you cannot access a variable before it is defined. Causes an error
+  // With 'var' you can access the existence of the variable, but not its value. In this instance it would return "undefined" but not an error
+
   const pizza = 'Deep Dish 🍕🍕🍕';
 
 </script>
