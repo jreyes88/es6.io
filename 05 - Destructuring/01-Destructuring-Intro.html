@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Destructuring!</title>
+</head>
+<body>
+<script>
+  const person = {
+    first: 'Joey',
+    last: 'Reyes',
+    country: 'USA',
+    city: 'Austin',
+    twitter: '@migas'
+  };
+
+  // If you need to access properties of an object, or values from an array
+  // Normally you do something like this
+  // const first = person.first;
+  // const last = person.last;
+
+  // To cut down on repetition, you can use Destructuring
+  const { first, last, twitter } = person;
+
+  const joey = {
+    first: 'Joey',
+    last: 'Reyes',
+    links: {
+      social: {
+        twitter: 'https://twiter.com/wesbos',
+        facebook: 'http://facebook.com/wesbos.developer'
+      },
+      web: {
+        blog: 'https://wesbos.com'
+      }
+    }
+  }
+
+  // You can also destructure more nested objects, like you would an API return
+  // You can also store the value in a custom-named variable on the fly
+  const { twitter:tweet, facebook:fb } = joey.links.social;
+
+  const settings = { width: 300, color: 'black' }; //height, fontSize
+
+  // The following will check if the contained attributes are defined within the settings
+  // deconstructor, if not it will fall back on the defaults defined here
+  const { width = 100, height = 100, color = 'blue', fontSize = 25 } = settings;
+
+</script>
+</body>
+</html>
