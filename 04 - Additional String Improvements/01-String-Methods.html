@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New String Methods</title>
+</head>
+<body>
+
+<script>
+const course = 'RFB2';
+const flightNumber = '20-AC2018-jz';
+const accountNumber = '825242631RT0001';
+
+const make = 'BMW';
+const model = 'x5';
+const colour = 'Royal Blue';
+
+// .startsWith()
+course.startsWith('RFB'); // returns true
+course.startsWith('rfb'); // returns false
+flightNumber.startsWith('AC', 3); // returns false, skips first 3 characters
+
+// .endsWith()
+flightNumber.endsWith('jz');
+accountNumber.endsWith('RT', 11); // only takes the first 11 characters and ignores the rest
+
+// .includes()
+flightNumber.includes('AC'); // returns true
+flightNumber.includes('ac'); // returns false
+
+// .repeat()
+'Joey'.repeat(10); // gives you 10 Joeys
+function leftPad(str, length = 20) {
+  return `-> ${' '.repeat(length - str.length)}${str}`;
+}
+
+console.log(leftPad(make));
+console.log(leftPad(model));
+console.log(leftPad(colour));
+
+`${'💰' * 5}`.repeat(10) + ' Batman!'; // Use in the console
+
+</script>
+
+</body>
+</html>
