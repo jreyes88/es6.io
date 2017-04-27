@@ -12,13 +12,12 @@
     size: 'Medium',
     weight: 50,
     sugar: 10
-  };
+  }
 
-  for (const prop in apple) {
+  for (const prop of Object.keys(apple)) {
     const value = apple[prop];
     console.log(value, prop);
   }
-
 </script>
 </body>
 </html>
