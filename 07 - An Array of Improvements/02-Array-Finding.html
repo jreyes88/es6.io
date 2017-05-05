@@ -177,9 +177,29 @@
         "display_src":"https://scontent.cdninstagram.com/hphotos-xpt1/t51.2885-15/e35/11326072_550275398458202_1726754023_n.jpg"
      }
   ];
-  const code = 'VBgtGQcSf';
-  const post = posts.find(post => post.code === code);
 
+  // Use .find() to find a particular entry in an object
+  // const post = posts.find(post => {
+  //   if(post.code ==='oTZ0zQcWt') {
+  //     return true;
+  //   }
+  //   return false;
+  // });
+
+  // Replace the code above with:
+  const code = 'oTZ0zQcWt';
+  const post = posts.find(post => post.code === code);
+  console.log(post);
+
+  // Use .findIndex() to find the index location of a particular entry
+  // const postIndex = posts.findIndex(post => {
+  //   if (post.code === 'oTZ0zQcWt') {
+  //     return true;
+  //   }
+  //   return false;
+  // });
+
+  // Replace the code above with, use implicit returns:
   const postIndex = posts.findIndex(post => post.code === code);
   console.log(postIndex);
 
