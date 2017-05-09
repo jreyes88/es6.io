@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Spread Examples</title>
+</head>
+<body>
+  <div class="people">
+    <p>Wes</p>
+    <p>Kait</p>
+    <p>Randy</p>
+  </div>
+<script>
+  // Spread is an alternative to Array.from()
+  // querySelectorAll produces a nodeList
+  // Would have to use Array.from()
+  // const people = Array.from(document.querySelectorAll('.people p'));
+  
+  // You can also do spread though
+  const people = [...document.querySelectorAll('.people p')];
+  const names = people.map((person) => person.textContent);
+  console.log(names);
+
+  // Another use case is to make a new array off a property in an object
+  const deepDish = {
+    pizzaName: 'Deep Dish',
+    size: 'Medium',
+    ingredients: ['Marinara', 'Italian Sausage', 'Dough', 'Cheese']
+  };
+
+  const shoppingList = ['Milk', 'Flour', ...deepDish.ingredients];
+  console.log(shoppingList);
+
+  // Say you want to remove a mean comment when all you get is an id variable
+  // Use the .findIndex() method
+  // Then spread and slice the old comments array from before and after the mean comment
+  const comments = [
+    { id: 209384, text: 'I love your dog!' },
+    { id: 234235, text: 'Cuuute!' },
+    { id: 136234, text: 'You are so dumb' },
+    { id: 692723, text: 'Nice work on this Joey!' }
+  ];
+
+  const id = 136234;
+  const commentIndex = comments.findIndex(comment => comment.id === id);
+  console.log(commentIndex);
+
+  // However, this returns an array of two arrays which isn't what we want
+  // const newComments = [comments.slice(0, commentIndex), comments.slice(commentIndex + 1)];
+  // So use spread:
+  const newComments = [...comments.slice(0, commentIndex), ...comments.slice(commentIndex + 1)];
+  console.log(newComments);
+
+</script>
+</body>
+</html>

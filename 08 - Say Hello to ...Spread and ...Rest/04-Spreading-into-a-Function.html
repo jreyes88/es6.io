@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Spread Examples</title>
+</head>
+<body>
+<script>
+  const inventors = ['Einstein', 'Newton', 'Galileo'];
+  const newInventors = ['Musk', 'Jobs'];
+
+  // We know that spread is good for doing things like combining values from different arrays into one array
+  inventors.push(...newInventors);
+  console.log(inventors);
+
+  // If you want to spread into a function (i.e., push newInventors items into the Inventors array)
+  const name = ['Joey', 'Reyes'];
+
+  function sayHi (first, last) {
+    console.log(`Hey there ${first} ${last}.`);
+  };
+
+  // You could do this:
+  // sayHi(name[0], name[1]);
+  // But come on, that doesn't work. Try this:
+  
+  sayHi(...name);
+</script>
+</body>
+</html>
+
+

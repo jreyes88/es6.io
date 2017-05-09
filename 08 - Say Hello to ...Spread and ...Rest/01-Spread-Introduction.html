@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The ...Spread Operator</title>
+</head>
+<body>
+<script>
+  const featured = ['Deep Dish', 'Pepperoni', 'Hawaiian'];
+  const specialty = ['Meatza', 'Spicy Mama', 'Margherita'];
+
+  const deepDish = {
+    pizzaName: 'Deep Dish',
+    size: 'Medium',
+    ingredients: ['Marinara', 'Italian Sausage', 'Dough', 'Cheese']
+  }
+
+  // Say you want to combine both featured & specialty, AND add 'Veggie' into the middle
+  // let pizzas = [];
+  // pizzas = pizzas.concat(featured);
+  // pizzas.push('Veggie');
+  // pizzas = pizzas.concat(specialty);
+
+  // The Spread function (...) lets you avoid the above mess.
+  
+
+  // Try the following:
+  console.log('Joey');
+  console.log(['Joey']);
+  console.log([...'Joey']);
+
+  // Now try redoing the pizzas problem earlier.
+  const pizzas = [...featured, 'Veggie', ...specialty];
+
+  console.log(pizzas);
+
+  // Likewise, if you want to copy an array into a new array
+  // You used to have to do the following:
+  // const fridayPizzas = pizzas;
+
+  // However, this would overwrite both arrays:
+  // fridayPizzas[0] = 'Meat Lovers';
+  // console.log(fridayPizzas);
+  // console.log(pizzas);
+  
+  // Instead, use spread:
+  const fridayPizzas = [...pizzas];
+  fridayPizzas[0] = 'Meat Lovers';
+  console.log(fridayPizzas);
+  console.log(pizzas);
+</script>
+</body>
+</html>

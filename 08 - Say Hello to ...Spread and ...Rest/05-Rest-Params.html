@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The ...Rest Param</title>
+</head>
+<body>
+  <script>
+  // ...Rest param is the opposite of a ...Spread param
+  // If a ...Spread param unpacks an array into individual items
+  // ...Rest takes multiple things and packs it into a single array
+  
+  // Example 1: You have a function to convert currency
+  // First argument is the rate of conversion
+  // Other than that you don't know how many other amounts they will pass to be converted
+  // function convertCurrency(rate, amount1, amount 2, amount 3, etc) {
+  // }
+  
+  // function convertCurrency(rate, ...amounts) {
+  //   return amounts.map(amount => amount * rate);
+  // }
+
+
+  
+  // To further hone this in, let's add tax and tip:
+  // function convertCurrency(rate, tax, tip, ...amounts) {
+  //   console.log(rate, tax, tip, amounts);
+  // }
+
+  // const amounts = convertCurrency(1.54, 10, 23, 52, 1, 56);
+  // console.log(amounts);
+  
+  // Example 2: also used in destructuring
+  // Let's destructure this so that Arg 1 is name, Arg 2 is id, and the rest are distances
+  const runner = ['Joey Reyes', 123, 5.5, 5, 3, 6, 35];
+  const [name, id, ...distances] = runner;
+  console.log(name);
+
+  const team = ['Joey', 'Tessa', 'Wes', 'Bos', 'Kelly'];
+  const [captain, assistant, ...players] = team;
+  console.log(captain, assistant, players);
+
+  </script>
+</body>
+</html>
