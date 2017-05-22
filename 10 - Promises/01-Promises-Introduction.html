@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Promises!</title>
+</head>
+<body>
+<script>
+  // Promises are often used when you're fetching an API
+  // Fetch is part of the browser, and it returns a promise
+  
+  // Javascript is asynchronous
+  const postsPromise = fetch('http://wesbos.com/wp-json/wp/v2/posts');
+  postPromise
+    .then(data => data.json())
+    .then(data => { console.log(data) })
+    .catch((err) ={
+      console.error(err);
+    })
+
+</script>
+</body>
+</html>
