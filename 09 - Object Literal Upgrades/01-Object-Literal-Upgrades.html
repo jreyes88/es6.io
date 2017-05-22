@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Object Literal Upgrades</title>
+</head>
+<body>
+<script>
+  const first = 'snickers';
+  const last = 'bos';
+  const age = 2;
+  const breed  = 'King Charles Cav';
+
+  // 1. Say you have variables and those are the same names as the keys in an object
+  // const dog = {
+  //   first: first,
+  //   last: last,
+  //   age: age,
+  //   breed: breed
+  // }
+
+  // You don't have to repeat the name for the value:
+  // Only need to use this when property name and variable are exactly the same name
+  const dog = {
+    first,
+    last,
+    age,
+    breed,
+    pals: ['Sunny', 'Bobo']
+  }
+
+  // console.log(dog);
+
+  // 2. Method definitions inside of an object:
+  // Instead of literally declaring everything like the following:
+  // const modal = {
+  //   create: function() {
+
+  //   },
+  //   open: function() {
+
+  //   },
+  //   close: function() {
+
+  //   }
+  // }
+
+  // Do this instead:
+  const modal = {
+    create(selector) {
+    },
+    open(content) {
+
+    },
+    close(goodbye) {
+      
+    }
+  }
+
+  // 3. Computed Property Names
+  // You have a key that needs to be set on an object
+  const key = 'pocketColor';
+  const value = '#ffc600';
+
+  // Previously we'd do something like this
+  // const tShirt = {
+  //   [key] : value
+  // }
+  
+  // Use this function to invert the pocketColor
+  function invertColor(color) {
+    return '#' + ("000000" + (0xFFFFFF ^ parseInt(color.substring(1),16)).toString(16)).slice(-6);
+  }
+
+  const tShirt = {
+    [key] : value,
+    [`${key}Opposite`]: invertColor(value)
+  }
+
+  // console.log(tShirt);
+  
+  // Another example of the last one:
+  const keys = ['size', 'color', 'weight'];
+  const values = ['medium', 'red', 100];
+
+
+  const shirt = {
+    [keys.shift()]: values.shift(),
+    [keys.shift()]: values.shift(),
+    [keys.shift()]: values.shift(),
+  }
+
+  console.log(shirt);
+</script>
+</body>
+</html>
