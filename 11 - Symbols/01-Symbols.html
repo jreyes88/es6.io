@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Symbols</title>
+</head>
+<body>
+<script>
+  // 7 Primitive Types in JavaScript:
+  //   1. Number
+  //   2. String
+  //   3. Object
+  //   4. Boolean
+  //   5. Null
+  //   6. Undefined
+  //   7. Symbol* 
+  // *Symbol is new with ES6
+  
+  // Symbols are unique identifiers, they help us avoid naming collisions
+  // You define the variable, then pass it a descriptor
+  // 
+  const wes = Symbol('Wes');
+  const person = Symbol('Wes');
+  console.log(wes); // yields Symbol(Wes)
+  console.log(person); // yields Symbol(Wes)
+  console.log(wes === person); // yields False
+
+  // In the following, you can imagine running into issues as your classroom size
+  // grows, and there are several Marks or Olivias.
+  // const classRoom = {
+  //   'Mark': {
+  //     grade: 50,
+  //     gender: 'male'
+  //   },
+  //   'Olivia': {
+  //     grade: 80,
+  //     gender: 'female'
+  //   },
+  //   'Olivia': {
+  //     grade: 75,
+  //     gender: 'female'
+  //   }
+  // }
+  
+  // Instead you can use symbols
+  const classRoom = {
+    [Symbol('Mark')]: {
+      grade: 50,
+      gender: 'male'
+    },
+    [Symbol('Olivia')]: {
+      grade: 80,
+      gender: 'female'
+    },
+    [Symbol('Olivia')]: {
+      grade: 75,
+      gender: 'female'
+    }
+  }
+
+  // You cannot loop over Symbols, not innumerable
+  // The following doesn't do anything
+  for (person in classRoom) {
+    console.log(person);
+  }
+
+  // If you do need to access the data inside of a symbol,
+  // you can use the .getOwnPropertySymbols method
+  const syms = Object.getOwnPropertySymbols(classRoom);
+  console.log(syms); // returns the keys (the symbols are just the keys)
+  const data = syms.map(sym => classRoom[sym]); // This will build an array of the values stored to each symbol
+  console.log(data);
+
+
+</script>
+</body>
+</html>
