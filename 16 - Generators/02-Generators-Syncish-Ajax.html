@@ -6,9 +6,10 @@
 </head>
 <body>
 <script>
-
   function ajax(url) {
-    fetch(url).then(data => data.json()).then(data => dataGen.next(data))
+    fetch(url)
+      .then(data => data.json())
+      .then(data => dataGen.next(data))
   }
 
   function* steps() {
@@ -17,7 +18,7 @@
     console.log(beers);
 
     console.log('fetching wes');
-    const wes = yield ajax('https://api.github.com/users/');
+    const wes = yield ajax('https://api.github.com/users/wesbos');
     console.log(wes);
 
     console.log('fetching fat joe');
@@ -27,7 +28,6 @@
 
   const dataGen = steps();
   dataGen.next(); // kick it off
-
 </script>
 </body>
 </html>
