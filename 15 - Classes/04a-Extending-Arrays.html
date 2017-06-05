@@ -15,19 +15,31 @@
       this.push(movie);
     }
     topRated(limit = 10) {
-      return this.sort((a, b) => (a.stars > b.stars ? -1 : 1)).slice(0, limit);
+      return this.sort((a, b) => (a.stars > b.stars ? -1: 1)).slice(0, limit);
     }
   }
 
-  const movies = new MovieCollection('Wes\'s Fav Movies',
+  const movies = new MovieCollection('Joey\'s Fav Movies', 
     { name: 'Bee Movie', stars: 10 },
-    { name: 'Star Wars Trek', stars: 1 },
+    { name: 'Star Wars', stars: 1 },
     { name: 'Virgin Suicides', stars: 7 },
     { name: 'King of the Road', stars: 8 }
   );
 
   movies.add({ name: 'Titanic', stars: 5 });
 
+  // The following will return indexes and the key for the title
+  for (const movie in movies) {
+    console.log(movie);
+  };
+
+  // The following will return the objects
+  for (const movie of movies) {
+    console.log(movie);
+  };
+
+  // The following will return the top two rated movies:
+  console.table(movies.topRated(2));
 </script>
 </body>
 </html>
