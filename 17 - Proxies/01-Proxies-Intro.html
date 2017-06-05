@@ -6,7 +6,8 @@
 </head>
 <body>
 <script>
-  const person = { name: 'Wes', age: 100 };
+  const person = { name: 'Joey', age: 100 };
+
   const personProxy = new Proxy(person, {
     get(target, name) {
       // console.log('someone is asking for ', target, name);
@@ -14,12 +15,12 @@
     },
     set(target, name, value) {
       if(typeof value === 'string') {
-        target[name] = value.trim().toUpperCase() + '✂️';
+        target[name] = value.trim();
       }
     }
   });
 
-  personProxy.name = 'Wesley';
+  personProxy.name = 'Joseph';
 </script>
 </body>
 </html>
