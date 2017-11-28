@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Maps!</title>
+  <style>
+    button {
+      font-size: 50px;
+      margin:10px;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  // Weak Map is similar to a Weak Set
+  let dog1 = { name: 'Snickers' };
+  let dog2 = { name: 'Sunny' };
+
+  const strong = new Map();
+  const weak = new WeakMap();
+
+  strong.set(dog1, 'Snickers is the best!');
+  weak.set(dog2, 'Sunny is the second best!');
+
+  // weak.size();
+  // returns nothing
+  // stong.size();
+  // returns the size
+
+  dog1 = null;
+  dog2 = null;
+  // weak doesn't have anything anymore, but strong still holds onto that reference
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sets</title>
+</head>
+<body>
+<script>
+  const people = new Set();
+  people.add('Joey');
+  people.add('Wes');
+  people.add('Snickers');
+
+  // run 'people' in the console
+  // run 'people.size' in the console
+  // -- it's not index-based
+  // run 'people.delete('Wes');
+  // run people.clear();
+
+
+  // The following gives us a SetIterator which is a generator
+  // people.values();
+
+
+  const iterator = people.values();
+
+  // So now you can do something like this:
+  // iterator.next();
+
+  // or this:
+  // for (const person of people) {
+  //   console.log(person);
+  // }
+
+  // people.keys();
+  // people.entries();
+
+  // A second example:
+  // You can pass in data as you create the set (like an array)
+  const students = new Set(['Joey', 'Wes', 'Snickers']);
+  // On this you can call .has()
+  students.has('Wes');
+  studenst.has('Tony');
+
+  // You can also pass in an array
+  const dogs = ['Doodle', 'Sunny'];
+  const dogSet = new Set(dogs);
+
+
+
+</script>
+</body>
+</html>

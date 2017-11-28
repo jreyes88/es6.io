@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weaksets</title>
+</head>
+<body>
+<script>
+  // a Weakset is similar to a set but with some limitations/benefits in certain situations
+  let dog1 = { name: 'Snickers', age: 3 };
+  let dog2 = { name: 'Sunny', age: 1 };
+
+  const weakSauce = new WeakSet([dog1, dog2]);
+
+  // a weakset can only ever contain objects
+  // no strings, arrays, numbers, or booleans
+  // you also cannot loop over it
+  // The following will throw an error:
+  // for (const dog of weakSauce) {
+  //   console.log(dog);
+  // }
+
+  // A weakset doesn't have a .clear() method
+  // A weakset sort of cleans itself up, when the reference is deleted, it will be also deleted from the sets
+  console.log(weakSauce);
+  dog1 = null;
+
+  // Give it a second then run 'weakSauce' in the console and dog1 will be garbage-collected
+</script>
+</body>
+</html>

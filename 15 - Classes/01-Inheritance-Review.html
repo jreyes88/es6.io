@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Inheritance Review</title>
+</head>
+<body>
+<script>
+  // Create a prototype
+  function Dog(name, breed) {
+    this.name = name;
+    this.breed = breed;
+  }
+
+  // Prototypal Inheritance: When you put a method on the constructor, it will be inherited by what you create with the object
+
+
+  Dog.prototype.bark = function() {
+    console.log(`Bark Bark! May name is ${this.name}`);
+  }
+
+  Dog.prototype.cuddle = function() {
+    console.log('I love you owner!');
+  }
+
+  const snickers = new Dog('snickers', 'dachsund');
+  const sunny = new Dog('sunny', 'golden doodle');
+  console.log(snickers);
+</script>
+</body>
+</html>
