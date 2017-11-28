@@ -19,47 +19,72 @@
   ];
 
   function getPostById(id) {
-    // Create a new promise
+    // Create a new Promise
     return new Promise((resolve, reject) => {
-      // use setTimeout to mimic database latency
+      // Use timeout to mimic a database
       setTimeout(() => {
-        // find post we want
+        // Find the post we want
         const post = posts.find(post => post.id === id);
-        if (post) {
+        if(post) {
           resolve(post); // send the post back
         } else {
-          reject(Error('No post was found!')); // reject
+          reject(Error('No post was found!'));
         }
       }, 200);
-    })
+    });
   }
 
   function hydrateAuthor(post) {
-    // Create a new promise
+    // create a new promise
     return new Promise((resolve, reject) => {
-      // Find the author
-      const authorDetails = authors.find(person => person.name === post.author)
-      if (authorDetails) {
-        // "hydrate" the post object with the author object"
-        post.author = authorDetails;
+      // find the author
+      const authorDetails = authors.find(person => person.name === post.author);
+      if(authorDetails) {
+        // hydrate the post object with the author object
+        post.authorInfo = authorDetails;
         resolve(post);
       } else {
-        reject(Error('Cannot find the author'));
+        reject(Error('Cannot find the author!'));
       }
     })
   }
-  
-  getPostById(2)
-    .then(post => {
-      // First version of the data
-      console.log(post);
-      return hydrateAuthor(post);
+
+  // getPostById(2)
+  //   .then(post => {
+  //     console.log(post);
+  //     return hydrateAuthor(post);
+  //   })
+  //   .then(post => {
+  //     console.log(post);
+  //   })
+  //   .catch(err => {
+  //     console.error(err);
+  //   })
+
+  function hydrateAllPosts(posts) {
+    new Promise((resolve, reject) => {
+      for (const post of posts) {
+        getPostById(post.id)
+          .then(post => {
+            return hydrateAuthor(post);
+          })
+          .catch(err => {
+            console.error(err);
+          })
+      }
+      console.log(posts);
+      resolve(posts);
     })
-    .then(post => {
-      // Second, "hydrated" version of data where author is an object
-      console.log(post);
+    .then(posts => {
+      // console.log(posts);
     })
-    .catch(err => console.error(err));
+    .catch(err => {
+      console.error(err);
+    })
+  }
+
+  hydrateAllPosts(posts);
+
 </script>
 </body>
 </html>
